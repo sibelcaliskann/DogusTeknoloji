@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogusTeknoloji.SibelCaliskan", "DogusTeknoloji.SibelCaliskan\DogusTeknoloji.SibelCaliskan.csproj", "{C048ED05-DEAB-4DB3-80FB-DC5142A1B193}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C048ED05-DEAB-4DB3-80FB-DC5142A1B193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C048ED05-DEAB-4DB3-80FB-DC5142A1B193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C048ED05-DEAB-4DB3-80FB-DC5142A1B193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C048ED05-DEAB-4DB3-80FB-DC5142A1B193}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D389C6B6-DE87-491D-9A68-45BB3F7D1B02}
+	EndGlobalSection
+EndGlobal

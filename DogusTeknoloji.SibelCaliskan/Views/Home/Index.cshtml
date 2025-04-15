@@ -1,0 +1,24 @@
+﻿﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Doğuş Teknoloji Geleceğe Giriş Stajyer Sibel ÇALIŞKAN</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h2>Hoşgeldin @User.Identity.Name</h2>
+    }
+    else
+    {
+        <h2>Hoşgeldin kullanıcı</h2>
+    }
+
+    <!-- Resim -->
+    <img src="/images/dogus.png" alt="Geleceğe Giriş 2025 Başvuruları Başladı!" class="img-fluid mt-4" />
+</div>
+
+
+
+
+<div></div>

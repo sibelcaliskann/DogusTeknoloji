@@ -1,0 +1,19 @@
+﻿@model EditCommentViewModel
+
+@{
+    ViewData["Title"] = "Yorumu Düzenle";
+}
+
+<h2>Yorumu Düzenle</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Content" class="control-label"></label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-action="Details" asp-controller="Blogs" asp-route-id="@ViewBag.BlogId" class="btn btn-secondary">İptal</a>
+</form>

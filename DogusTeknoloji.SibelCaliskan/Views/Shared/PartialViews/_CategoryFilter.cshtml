@@ -1,0 +1,24 @@
+﻿
+@model List<CategoryViewModel>
+@*  @model CombinedViewModel *@
+
+@if (Model != null && Model.Any())
+{
+    <form asp-action="Index" asp-controller="Blogs" method="get">
+        <div class="form-group">
+            <label for="categorySelect">Kategori Seç:</label>
+            <select id="categorySelect" name="categoryId" class="form-control">
+                <option value="">Tüm Kategoriler</option>
+                @foreach (var category in Model)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Filtrele</button>
+    </form>
+}
+else
+{
+    <p>Kategoriler yüklenemedi.</p>
+}

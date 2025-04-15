@@ -1,0 +1,24 @@
+﻿
+@model CombinedViewModel
+
+<div class="row">
+    <div class="col-md-3">
+        
+        <partial name="PartialViews/_CategoryFilter" model="Model.Categories" />
+    </div>
+    <div class="col-md-9">
+     
+        @if (Model.Blogs != null && Model.Blogs.Any())
+        {
+            <partial name="PartialViews/_Blog_List" model="Model.Blogs" />
+        }
+        else
+        {
+            <p>No blogs available.</p>
+        }
+    </div>
+</div>
+
+
+
+

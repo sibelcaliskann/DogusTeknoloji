@@ -1,0 +1,85 @@
+﻿@model List<BlogViewModel>
+@*  @model CombinedViewModel  *@
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@functions {
+    public string TruncateContent(string content, int maxLength)
+    {
+        if (string.IsNullOrEmpty(content) || content.Length <= maxLength)
+        {
+            return content;
+        }
+        return content.Substring(0, maxLength) + "...";
+    }
+}
+
+
+
+<div class="container mt-4">
+    <div class="row">
+      
+        @if(Model != null && Model.Any())
+   {
+           
+                @foreach (var blog in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="@(!string.IsNullOrEmpty(blog.ImageUrl) ? blog.ImageUrl : "/images/default.jpg")" class="card-img-top blog-image" alt="Blog Image">
+                        <div class="card-body">
+                            <h5 class="card-title">@blog.Title</h5>
+                            <p class="card-text">@TruncateContent(blog.Content, 100)</p>
+                            <p class="blog-category">Category: @blog.CategoryName</p>
+                            <p class="blog-date">@blog.PublishDate.ToString("dd MMM yyyy")</p>
+                        </div>
+                        <div class="card-footer">
+                            <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id" class="btn btn-info">Details</a>
+                            @if (SignInManager.IsSignedIn(User) && blog.UserId.ToString() == UserManager.GetUserId(User))
+                            {
+                                <a asp-controller="Blogs" asp-action="Edit" asp-route-id="@blog.Id" class="btn btn-warning">Edit</a>
+                                <form asp-controller="Blogs" asp-action="Delete" asp-route-id="@blog.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+            }
+        else
+        {
+            <p>No blogs available.</p>
+        }
+       
+    </div>
+</div>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="container mt-4">
+        <a asp-controller="Blogs" asp-action="Create" class="btn btn-primary">Create Blog</a>
+    </div>
+}
+<style>
+    .blog-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .blog-category {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    .blog-date {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    .card-body {
+        position: relative;
+    }
+</style>

@@ -1,0 +1,20 @@
+﻿@model CreateCommentViewModel
+
+<div class="container">
+    <h2>Add a Comment</h2>
+    <form asp-action="Create" asp-controller="Comments" method="post">
+        
+		<input type="hidden" name="userId" value="@ViewData["UserId"]" />
+		<div class="form-group">
+			<label for="UserName">Your Name:</label>
+			<input type="text" id="UserName" name="UserName" class="form-control" value="@Model.UserName" required />
+		</div>
+		<input type="hidden" name="BlogId" value="@ViewData["BlogId"]" />
+        <input type="hidden" name="CreatedAt" value="@ViewData["CreatedAt"]" />
+        <div class="form-group">
+            <label for="Content">Your Comment:</label>
+            <textarea id="Content" name="Content" class="form-control" rows="4" required>@Model.Content</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
